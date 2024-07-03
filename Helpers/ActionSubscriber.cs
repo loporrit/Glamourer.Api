@@ -14,7 +14,7 @@ public class ActionSubscriber
     public bool Valid
         => _subscriber != null;
 
-    protected ActionSubscriber(DalamudPluginInterface pi, string label)
+    protected ActionSubscriber(IDalamudPluginInterface pi, string label)
     {
         try
         {
@@ -32,7 +32,7 @@ public class ActionSubscriber
         => _subscriber?.InvokeAction();
 }
 
-/// <inheritdoc cref="ActionSubscriber"/> 
+/// <inheritdoc cref="ActionSubscriber"/>
 public class ActionSubscriber<T1>
 {
     private readonly ICallGateSubscriber<T1, object?>? _subscriber;
@@ -41,7 +41,7 @@ public class ActionSubscriber<T1>
     public bool Valid
         => _subscriber != null;
 
-    protected ActionSubscriber(DalamudPluginInterface pi, string label)
+    protected ActionSubscriber(IDalamudPluginInterface pi, string label)
     {
         try
         {
@@ -59,16 +59,16 @@ public class ActionSubscriber<T1>
         => _subscriber?.InvokeAction(a);
 }
 
-/// <inheritdoc cref="ActionSubscriber"/> 
+/// <inheritdoc cref="ActionSubscriber"/>
 public class ActionSubscriber<T1, T2>
 {
     private readonly ICallGateSubscriber<T1, T2, object?>? _subscriber;
 
-    /// <inheritdoc cref="ActionSubscriber{T1}.Valid"/> 
+    /// <inheritdoc cref="ActionSubscriber{T1}.Valid"/>
     public bool Valid
         => _subscriber != null;
 
-    protected ActionSubscriber(DalamudPluginInterface pi, string label)
+    protected ActionSubscriber(IDalamudPluginInterface pi, string label)
     {
         try
         {
@@ -81,21 +81,21 @@ public class ActionSubscriber<T1, T2>
         }
     }
 
-    /// <inheritdoc cref="ActionSubscriber.Invoke"/> 
+    /// <inheritdoc cref="ActionSubscriber.Invoke"/>
     protected void Invoke(T1 a, T2 b)
         => _subscriber?.InvokeAction(a, b);
 }
 
-/// <inheritdoc cref="ActionSubscriber"/> 
+/// <inheritdoc cref="ActionSubscriber"/>
 public class ActionSubscriber<T1, T2, T3>
 {
     private readonly ICallGateSubscriber<T1, T2, T3, object?>? _subscriber;
 
-    /// <inheritdoc cref="ActionSubscriber{T1}.Valid"/> 
+    /// <inheritdoc cref="ActionSubscriber{T1}.Valid"/>
     public bool Valid
         => _subscriber != null;
 
-    protected ActionSubscriber(DalamudPluginInterface pi, string label)
+    protected ActionSubscriber(IDalamudPluginInterface pi, string label)
     {
         try
         {
@@ -108,7 +108,7 @@ public class ActionSubscriber<T1, T2, T3>
         }
     }
 
-    /// <inheritdoc cref="ActionSubscriber.Invoke"/> 
+    /// <inheritdoc cref="ActionSubscriber.Invoke"/>
     protected void Invoke(T1 a, T2 b, T3 c)
         => _subscriber?.InvokeAction(a, b, c);
 }
